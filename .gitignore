@@ -22,7 +22,6 @@
 *.lock
 profile
  
- 
 ####
 # Xcode temporary files that should never be committed
 # 
@@ -112,7 +111,8 @@ xcuserdata
 #         xcschememanagement.plist
 #
 #
- 
+*.xcworkspace 
+
 ####
 # Xcode 4 - Deprecated classes
 #
