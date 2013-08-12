@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface PathView ()
+// Add comment
 @property (strong, nonatomic) UIBezierPath *path;
 @property (assign, nonatomic) CGPoint initialPoint;
 @end
