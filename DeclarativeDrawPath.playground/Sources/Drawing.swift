@@ -33,6 +33,19 @@ extension CAShapeLayer {
         
         return layer
     }
+    
+    public static func line(start: CGPoint, end: CGPoint, width: CGFloat, color: UIColor) -> CAShapeLayer {
+        let path = UIBezierPath()
+        path.move(to: start)
+        path.addLine(to: end)
+        
+        let layer = CAShapeLayer()
+        layer.path = path.cgPath
+        layer.lineWidth = width
+        layer.strokeColor = color.cgColor
+        
+        return layer
+    }
 }
 
 extension UIView {
