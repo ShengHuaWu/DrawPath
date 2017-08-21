@@ -19,6 +19,20 @@ extension CAShapeLayer {
         
         return layer
     }
+    
+    public static func triangle(_ point1: CGPoint, _ point2: CGPoint, _ point3: CGPoint, color: UIColor) -> CAShapeLayer {
+        let path = UIBezierPath()
+        path.move(to: point1)
+        path.addLine(to: point2)
+        path.addLine(to: point3)
+        path.close()
+        
+        let layer = CAShapeLayer()
+        layer.path = path.cgPath
+        layer.fillColor = color.cgColor
+        
+        return layer
+    }
 }
 
 extension UIView {
