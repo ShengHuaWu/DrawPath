@@ -10,6 +10,15 @@ extension CAShapeLayer {
         
         return layer
     }
+    
+    public static func oval(in rect: CGRect, color: UIColor) -> CAShapeLayer {
+        let path = UIBezierPath(ovalIn: rect)
+        let layer = CAShapeLayer()
+        layer.path = path.cgPath
+        layer.fillColor = color.cgColor
+        
+        return layer
+    }
 }
 
 extension UIView {
