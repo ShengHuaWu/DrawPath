@@ -11,6 +11,7 @@ Overall, declarative programming is a helpful thought and it is worthwhile to gi
 ### Implementation
 In this article, I would like to demonstrate a simple example of declarative programming, which can create different shapes within a UIView instance.
 Besides, I take the advantage of CAShapeLayer to implement the shapes, such as a rectangle, an oval, a triangle, and a line.
+
 First of all, let's focus on creating rectangles and write an extension of CAShapeLayer as following.
 ```
 extension CAShapeLayer {
@@ -48,6 +49,8 @@ containView.draw(
     .rectangle(roundedRect: roundedRect, cornorRadius: 16, color: .red)
 )
 ```
+
+![RedRectangle](https://github.com/ShengHuaWu/DrawPath/blob/master/Resources/RedRectangle.png)
 
 ### Notes
 1. Readable, concise, expressiveness
