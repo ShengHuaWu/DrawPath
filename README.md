@@ -52,6 +52,64 @@ containView.draw(
 
 ![RedRectangle](https://github.com/ShengHuaWu/DrawPath/blob/master/Resources/RedRectangle.png)
 
+Now, we are able to create ovals, triangles, and lines with the same pattern. Add the following code into the extension of CAShapeLayer.
+```
+extension CAShapeLayer {
+    // ...
+
+    static func oval(in rect: CGRect, color: UIColor) -> CAShapeLayer {
+        let path = UIBezierPath(ovalIn: rect)
+        let shape = CAShapeLayer()
+        shape.path = path.cgPath
+        shape.fillColor = color.cgColor
+
+        return shape
+    }
+
+    static func triangle(_ point1: CGPoint, _ point2: CGPoint, _ point3: CGPoint, color: UIColor) -> CAShapeLayer {
+        let path = UIBezierPath()
+        path.move(to: point1)
+        path.addLine(to: point2)
+        path.addLine(to: point3)
+        path.close()
+
+        let shape = CAShapeLayer()
+        shape.path = path.cgPath
+        shape.fillColor = color.cgColor
+
+        return shape
+    }
+
+    static func line(start: CGPoint, end: CGPoint, width: CGFloat, color: UIColor) -> CAShapeLayer {
+        let path = UIBezierPath()
+        path.move(to: start)
+        path.addLine(to: end)
+
+        let shape = CAShapeLayer()
+        shape.path = path.cgPath
+        shape.lineWidth = width
+        shape.strokeColor = color.cgColor
+
+        return shape
+    }
+}
+```
+
+Finally, the drawing code will look like this.
+```
+// ...
+
+containView.draw(
+    .rectangle(roundedRect: roundedRect, cornorRadius: 16, color: .red),
+    .oval(in: roundedRect.insetBy(dx: 20, dy: 30), color: .blue),
+    .triangle(CGPoint(x: 10, y: 10), CGPoint(x: 10, y: 150), CGPoint(x: 150, y: 10), color: .brown),
+    .line(start: CGPoint(x: 480, y: 10), end: CGPoint(x: 480, y: 300), width: 6, color: .green)
+)
+
+```
+
+### Conclusion
+
 ### Notes
 1. Readable, concise, expressiveness
 2. What to do v.s. How to do it
