@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:LoaderAnimation.playground">
+   </FileRef>
+   <FileRef
       location = "group:DeclarativeDrawPath.playground">
    </FileRef>
    <FileRef
